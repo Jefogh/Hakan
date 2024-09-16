@@ -1,0 +1,34 @@
+name: Flutter CI
+
+on:
+  push:
+    branches:
+      - master  # يشغّل العملية عند كل دفع (push) إلى الفرع الرئيسي
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # تشغيل البناء على أحدث إصدار من Ubuntu
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2  # جلب الكود من المستودع
+
+      - name: Install Flutter
+        uses: subosito/flutter-action@v1  # تثبيت Flutter
+        with:
+          flutter-version: 'latest'
+
+      - name: Install dependencies
+        run: flutter pub get  # جلب الاعتمادات (dependencies)
+
+      - name: Build APK
+        run: flutter build apk --release  # بناء APK الإصدار النهائي
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v2  # رفع APK إلى قسم artifacts
+        with:
+          name: apk
+          path: build/app/outputs/flutter-apk/app-release.apk  # المسار إلى ملف APK الناتج
