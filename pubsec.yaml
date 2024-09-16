@@ -1,0 +1,62 @@
+name: captcha_solver
+description: A Flutter project for solving captchas with background image processing.
+
+# Flutter SDK version
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+# Dependencies for the Flutter project
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # HTTP package to handle API requests
+  http: ^0.13.3
+
+  # Image picker package for picking images from the gallery
+  image_picker: ^0.8.4+4
+
+  # Path provider for accessing file system paths
+  path_provider: ^2.0.2
+
+  # Image manipulation package for image processing (used for captcha processing)
+  image: ^3.0.1
+
+  # Flutter Material design package
+  flutter_localizations:
+    sdk: flutter
+
+  # Add any other dependencies needed for localization, animations, or other features
+  intl: ^0.17.0
+
+  # Google ML Kit (optional if you plan to use machine learning for text recognition in captchas)
+  google_ml_kit: ^0.6.0
+
+# Assets required for the app (like images, fonts, etc.)
+flutter:
+  uses-material-design: true
+
+  # Define assets, such as images, that are included in the app.
+  assets:
+    - assets/images/
+
+  # If you have custom fonts, define them here.
+  # fonts:
+  #   - family: Roboto
+  #     fonts:
+  #       - asset: assets/fonts/Roboto-Regular.ttf
+  #       - asset: assets/fonts/Roboto-Bold.ttf
+  #         weight: 700
+
+# Development dependencies used for testing, linting, and so on
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # Linting package for checking the code quality
+  flutter_lints: ^1.0.4
+
+# Package configurations
+flutter:
+  # Enabling material design icons
+  uses-material-design: true
